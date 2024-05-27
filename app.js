@@ -16,6 +16,7 @@ const bookingRouter = require('./routes/bookingRouts');
 const appError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const cors = require('cors');
+const compression = require('compression');
 const cookieParser = require('cookie-parser');
 
 // 1Middleware
@@ -28,7 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public'))); //we do not need to mention address we just type /overview.html it will find and run
 
 // Enable CORS for all routes
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: '/', credentials: true }));
 
 // this will set security http header
 app.use(
@@ -87,7 +88,7 @@ app.use(
 // );
 
 //ownmiddleware
-
+app.use(compression());
 app.use((req, res, next) => {
      req.requestTime = new Date().toISOString();
      next();
@@ -115,7 +116,6 @@ app.use((req, res, next) => {
 // 3 Routs
 
 // transferd from here to different module or file
-
 // mounting routs so we can make routs easily like we made
 app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter); //here we are here tourRouter is middle ware function

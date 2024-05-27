@@ -94,7 +94,6 @@ reviewSchema.post('save', function () {
 reviewSchema.post(/^findOneAnd/, async function (doc) {
      // here find query will not work because it is exicuted
      await doc.constructor.calcReviews(doc.tour);
-     console.log(doc.tour);
 });
 
 const Review = mongoose.model('Review', reviewSchema);

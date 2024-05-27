@@ -6,7 +6,6 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 dotenv.config({ path: './config.env' });
 
-console.log(process.env.DATABASE);
 const DB = process.env.DATABASE.replace(
      '<password>',
      process.env.DATABASE_PASSWORD,
@@ -51,7 +50,6 @@ if (process.argv[2] === '--import') {
 if (process.argv[2] === '--delete') {
      deleteData();
 }
-console.log(process.argv[2]);
 
 // here above we are replacing environment variables
 

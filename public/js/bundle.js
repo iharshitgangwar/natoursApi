@@ -11995,18 +11995,17 @@ var login = exports.login = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          console.log(email, password);
-          _context.prev = 1;
-          _context.next = 4;
+          _context.prev = 0;
+          _context.next = 3;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://localhost:3000/api/v1/users/signin',
+            url: '/api/v1/users/signin',
             data: {
               email: email,
               password: password
             }
           });
-        case 4:
+        case 3:
           res = _context.sent;
           if (res.data.status === 'success') {
             (0, _alert.showAlert)('sucess', 'Logged in sucessfully!');
@@ -12014,17 +12013,17 @@ var login = exports.login = /*#__PURE__*/function () {
               location.assign('/');
             }, 1500);
           }
-          _context.next = 11;
+          _context.next = 10;
           break;
-        case 8:
-          _context.prev = 8;
-          _context.t0 = _context["catch"](1);
+        case 7:
+          _context.prev = 7;
+          _context.t0 = _context["catch"](0);
           (0, _alert.showAlert)('Failed', "".concat(_context.t0.response.data.message));
-        case 11:
+        case 10:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[1, 8]]);
+    }, _callee, null, [[0, 7]]);
   }));
   return function login(_x, _x2) {
     return _ref.apply(this, arguments);
@@ -12040,7 +12039,7 @@ var logout = exports.logout = /*#__PURE__*/function () {
           _context2.next = 3;
           return (0, _axios.default)({
             method: 'get',
-            url: 'http://localhost:3000/api/v1/users/logout'
+            url: '/api/v1/users/logout'
           });
         case 3:
           res = _context2.sent;
@@ -12073,7 +12072,7 @@ var accountProfile = exports.accountProfile = /*#__PURE__*/function () {
           _context3.next = 3;
           return (0, _axios.default)({
             method: 'get',
-            url: 'http://localhost:3000/api/v1/users/me'
+            url: '/api/v1/users/me'
           });
         case 3:
           res = _context3.sent;
@@ -12114,7 +12113,7 @@ var UpdateUser = exports.UpdateUser = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
-          url = type === 'password' ? 'http://localhost:3000/api/v1/users/updatepassword' : 'http://localhost:3000/api/v1/users/updateme';
+          url = type === 'password' ? '/api/v1/users/updatepassword' : '/api/v1/users/updateme';
           _context.next = 4;
           return (0, _axios.default)({
             method: 'PATCH',
@@ -12162,7 +12161,7 @@ var bookTour = exports.bookTour = /*#__PURE__*/function () {
         case 0:
           _context.prev = 0;
           _context.next = 3;
-          return (0, _axios.default)("http://localhost:3000/api/v1/bookings/bookingsSessions/".concat(tourId));
+          return (0, _axios.default)("/api/v1/bookings/bookingsSessions/".concat(tourId));
         case 3:
           session = _context.sent;
           _context.next = 6;
@@ -12420,7 +12419,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53785" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51925" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
