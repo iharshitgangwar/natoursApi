@@ -24,7 +24,7 @@ const app = express();
 // here we are telling express engine to use pug for view
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
-
+app.set('trust proxy', 1);
 // Global Middleware
 app.use(express.static(path.join(__dirname, 'public'))); //we do not need to mention address we just type /overview.html it will find and run
 
