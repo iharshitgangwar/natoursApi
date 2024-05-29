@@ -28,7 +28,7 @@ exports.toursView = catchAsync(async (req, res, next) => {
           return next(new appError('Not Found Please Try Again!', 404));
      }
 
-     res.status(200).render('tour', {
+     res.status(200).render('overview', {
           title: `${tour.name} Tour`,
           tour,
      });
