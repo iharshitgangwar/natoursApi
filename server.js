@@ -6,15 +6,15 @@ dotenv.config({ path: './config.env' });
 
 // we use it because it will catch error
 process.on('uncaughtException', (err) => {
-   console.log(err.name, err.message);
-   server.close(() => {
-      process.exit(1);
-   });
+     console.log(err.name, err.message);
+     server.close(() => {
+          process.exit(1);
+     });
 });
 
 const DB = process.env.DATABASE.replace(
-   '<password>',
-   process.env.DATABASE_PASSWORD,
+     '<password>',
+     process.env.DATABASE_PASSWORD,
 );
 
 console.log(process.env.NODE_ENV);
@@ -28,12 +28,12 @@ mongoose.connect(DB).then(() => console.log('DB IS CONNECTED'));
 const app = require(`./app`);
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-   console.log(`server is running at port ${port}`);
+     console.log(`server is running at port ${port}`);
 });
 // we do not depend completly on these we create own as we created errorhandler
 process.on('unhandledRejection', (err) => {
-   console.log(err.name, err.message);
-   server.close(() => {
-      process.exit(1);
-   });
+     console.log(err.name, err.message);
+     server.close(() => {
+          process.exit(1);
+     });
 });

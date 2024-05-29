@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const serverless = require('serverless');
 
 // const fs = require('fs');
 const morgan = require('morgan'); //middleware this will show req in console
@@ -139,4 +140,6 @@ app.all('*', (req, res, next) => {
 // global error function
 app.use(globalErrorHandler);
 
+app.use('/.netlify/functions/app', express.Router());
+module.exports.handler = serverless(app);
 module.exports = app;
