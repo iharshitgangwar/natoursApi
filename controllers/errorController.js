@@ -48,11 +48,12 @@ const sendErrorPro = (req, res, err) => {
                     message: 'something Got Very Wrong',
                });
           }
+     } else {
+          res.status(err.statusCode).render('error', {
+               title: 'Not Found',
+               msg: 'Please Try Again',
+          });
      }
-     res.status(err.statusCode).render('error', {
-          title: 'Not Found',
-          msg: 'Please Try Again',
-     });
 };
 module.exports = (err, req, res, next) => {
      err.statusCode = err.statusCode || 500;

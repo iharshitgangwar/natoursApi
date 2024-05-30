@@ -11,7 +11,6 @@ exports.overview = catchAsync(async (req, res, next) => {
           tours,
      });
 });
-
 exports.account = (req, res) => {
      res.status(200).render('account_a', {
           status: 'success',
