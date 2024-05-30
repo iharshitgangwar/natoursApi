@@ -1,14 +1,28 @@
 import '@babel/polyfill';
-import { login, logout } from './login';
+import { login, logout, signup } from './login';
 import { UpdateUser } from './updateUser';
 import { bookTour } from './stripe';
 const loginForm = document.querySelector('.form--login');
+const signupForm = document.querySelector('.form--signup');
 const logOutbtn = document.querySelector('.nav__el--logout');
 const updateuserData = document.querySelector('.form-user-data');
 const updateuserPass = document.querySelector('.form-user-settings');
 const bookBtn = document.getElementById('book-tour');
 
 document.addEventListener('DOMContentLoaded', () => {
+     if (signupForm) {
+          console.log(signupForm);
+          signupForm.addEventListener('submit', (e) => {
+               const email = document.getElementById('email').value;
+               const name = document.getElementById('name').value;
+               const password = document.getElementById('password').value;
+               const role = document.getElementById('role').value;
+               const conPassword = document.getElementById('conPassword').value;
+               e.preventDefault();
+               console.log(email, password, role, conPassword);
+               signup({ name, email, role, password, conPassword });
+          });
+     }
      if (bookBtn) {
           bookBtn.addEventListener('click', (e) => {
                e.target.textContent = 'Processing ...';

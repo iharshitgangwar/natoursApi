@@ -38,6 +38,11 @@ exports.getLoginForm = catchAsync(async (req, res, next) => {
           title: `Login Please`,
      });
 });
+exports.getsignUpForm = catchAsync(async (req, res, next) => {
+     res.status(200).render('signup', {
+          title: `Sign Up Please`,
+     });
+});
 
 exports.getMyTour = async (req, res, next) => {
      // find all Bookings

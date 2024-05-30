@@ -112,6 +112,10 @@ body {
   background-color: #eb4d4b;
 }
 
+.alert--Failed {
+  background-color: #eb4d4b;
+}
+
 .heading-secondary {
   font-size: 2.25rem;
   text-transform: uppercase;
@@ -1297,6 +1301,7 @@ body {
   margin: 0 auto;
 }
 
+.signUp-form,
 .login-form {
   margin: 0 auto;
   max-width: 55rem;

@@ -1,7 +1,5 @@
 const express = require('express');
 const path = require('path');
-
-// const fs = require('fs');
 const morgan = require('morgan'); //middleware this will show req in console
 const mongoSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
@@ -30,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public'))); //we do not need to men
 
 // Enable CORS for all routes
 app.use(cors({ origin: '/', credentials: true }));
-
+app.options('*', cors());
 // this will set security http header
 app.use(
      helmet({
