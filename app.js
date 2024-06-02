@@ -27,7 +27,7 @@ app.set('trust proxy', 1);
 app.use(express.static(path.join(__dirname, 'public'))); //we do not need to mention address we just type /overview.html it will find and run
 
 // Enable CORS for all routes
-app.use(cors({ origin: '/', credentials: true }));
+app.use(cors({ origin: '*', credentials: true }));
 app.options('*', cors());
 // this will set security http header
 app.use(
