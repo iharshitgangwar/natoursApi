@@ -13,6 +13,7 @@ const reviewRouter = require('./routes/reviewRouts');
 const bookingRouter = require('./routes/bookingRouts');
 const appError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
+const bookingController = require('./controllers/bookingController');
 const cors = require('cors');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
@@ -54,7 +55,11 @@ app.use(
      }),
 );
 
-app.post('/webhook-checkout', express.row({ type: 'application/json' }), {});
+app.post(
+     '/webhook-checkout',
+     express.raw({ type: 'application/json' }),
+     bookingController.webHookCheckout,
+);
 // this is for parsing form data
 // app.use(express.urlencoded({ extended: true, limit: '10b' }));
 app.use(cookieParser());

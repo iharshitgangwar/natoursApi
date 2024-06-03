@@ -67,7 +67,6 @@ const createBookingCheckout = async (session) => {
      const user = (await User.findOne({ email: session.customer.email })).id;
      const price = session.price.unit_amount / 100;
      await Booking.create({ tour, user, price });
-     res.redirect(req.originalUrl.split('?')[0]);
 };
 
 exports.webHookCheckout = (req, res, next) => {
