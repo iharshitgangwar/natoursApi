@@ -34,7 +34,7 @@ exports.bookingSession = catchAsync(async (req, res, next) => {
      // this is unsecure anyone can book
      const session = await stripe.checkout.sessions.create({
           payment_method_types: ['card'],
-          success_url: `${req.protocol}://${req.get('host')}/my-tour`,
+          success_url: `${req.protocol}://${req.get('host')}/my-tours`,
           cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}`,
           customer: customer.id,
           client_reference_id: req.param.tourId,
