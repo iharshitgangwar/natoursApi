@@ -82,7 +82,6 @@ exports.webHookCheckout = (req, res, next) => {
      } catch (err) {
           return res.status(400).send(`stripe error ${err.message}`);
      }
-
      if (event.type === 'checkout.session.completed') {
           createBookingCheckout(event.data.object);
           res.status(200).json({ recieved: 'true' });
