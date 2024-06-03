@@ -53,6 +53,8 @@ app.use(
           limit: '10mb',
      }),
 );
+
+app.post('/webhook-checkout', express.row({ type: 'application/json' }), {});
 // this is for parsing form data
 // app.use(express.urlencoded({ extended: true, limit: '10b' }));
 app.use(cookieParser());
