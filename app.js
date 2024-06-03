@@ -4,6 +4,7 @@ const morgan = require('morgan'); //middleware this will show req in console
 const mongoSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
 const xss = require('xss-clean');
+const bodyparser = require('body-parser');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const userRouter = require('./routes/userRouts');
@@ -57,7 +58,7 @@ app.use(
 
 app.post(
      '/webhook-checkout',
-     express.raw({ type: 'application/json' }),
+     bodyparser.raw({ type: 'application/json' }),
      bookingController.webHookCheckout,
 );
 // this is for parsing form data
