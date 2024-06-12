@@ -65,7 +65,6 @@ module.exports = (err, req, res, next) => {
           error.message = err.message;
           error.name = err.name;
           error.statusCode = err.statusCode;
-
           if (err.name === 'CastError') {
                error = handleCastErrorDB(error);
           }

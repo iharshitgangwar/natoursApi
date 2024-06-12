@@ -22,7 +22,6 @@ exports.updateOne = (Model) =>
                new: true,
                runValidators: true,
           });
-
           if (!doc) {
                return next(new AppError('Document not found', 404));
           }

@@ -49,7 +49,11 @@ exports.signup = catchAsync(async (req, res, next) => {
      });
      //    here secret is for security purpos
      const url = `${req.protocol}://${req.get('host')}/me`;
-     await new Email(newUser, url).sendWelcome();
+     try {
+          await new Email(newUser, url).sendWelcome();
+     } catch (err) {
+          return next(new appError('Email Not send', 400));
+     }
      // fisrtly it was same then we made function of this
      createSendToken(newUser, 201, res);
 });
@@ -179,8 +183,11 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
           //      subject: 'Your Password Reset Token Valid for 10 minutes',
           //      message,
           // });
-
-          await new Email(user, resetUrl).sendWelcome();
+          try {
+               await new Email(user, resetUrl).sendWelcome();
+          } catch (err) {
+               return next(new appError('Email Not send', 400));
+          }
           return res.status(200).json({
                status: 'success',
                message: 'Token Send to Email',

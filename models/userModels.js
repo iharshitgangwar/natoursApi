@@ -57,16 +57,16 @@ userSchema.pre(/^find/, function (next) {
      next();
 });
 
-// userSchema.pre('save', async function (next) {
-//      // this will run only password will modify
-//      if (!this.isModified('password')) {
-//           return next();
-//      }
-//      //this will hash the password in cost of 12
-//      this.password = await bcrypt.hash(this.password, 12);
-//      //    delete password field
-//      this.conPassword = undefined;
-// });
+userSchema.pre('save', async function (next) {
+     // this will run only password will modify
+     if (!this.isModified('password')) {
+          return next();
+     }
+     //this will hash the password in cost of 12
+     this.password = await bcrypt.hash(this.password, 12);
+     //    delete password field
+     this.conPassword = undefined;
+});
 
 userSchema.pre('save', function (next) {
      if (!this.isModified('passwordChangedat') || this.isNew) {
