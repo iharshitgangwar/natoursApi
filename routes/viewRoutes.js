@@ -12,6 +12,7 @@ router.get(
      authController.isLoggedIn,
      viewController.overview,
 );
+
 router.get('/tour/:slug', authController.isLoggedIn, viewController.toursView);
 router.get('/login', authController.isLoggedIn, viewController.getLoginForm);
 router.get('/signUp', viewController.getsignUpForm);

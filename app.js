@@ -123,6 +123,7 @@ app.use('/api/v1/tours', tourRouter); //here we are here tourRouter is middle wa
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/bookings', bookingRouter);
+
 //starting server at 3000 port
 // set to new file
 

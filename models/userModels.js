@@ -41,12 +41,12 @@ const userSchema = new mongoose.Schema({
           },
      },
      passwordChangedat: Date,
-
      passwordResetToken: String,
      passwordResetExpire: Date,
      activeStatus: {
           type: Boolean,
           default: true,
+          // why using select
           select: false,
      },
 });

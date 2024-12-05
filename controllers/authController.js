@@ -19,7 +19,7 @@ const createSendToken = (user, statusCode, res) => {
      const cookieOptions = {
           expires: new Date(
                Date.now() +
-                    process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
+               process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
           ),
           httpOnly: true,
      };
@@ -113,11 +113,9 @@ exports.protect = catchAsync(async (req, res, next) => {
      res.locals.user = currentUser;
      next();
 });
-
 //only for renderd pages
 exports.isLoggedIn = async (req, res, next) => {
      // get The token
-
      if (req.cookies.jwt) {
           try {
                // validate token
